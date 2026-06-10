@@ -11,7 +11,7 @@ should not be used.
 - **Records:** 354,947 domains (one row each)
 - **Format:** Apache Parquet (zstd), UTF-8
 - **License:** data under CC BY 4.0; code under MIT
-- **Canonical host:** Zenodo (DOI pending) · mirror: Hugging Face Datasets
+- **Canonical host:** Zenodo, DOI [10.5281/zenodo.20623589](https://doi.org/10.5281/zenodo.20623589)
 
 ---
 
@@ -40,7 +40,7 @@ hygiene, and the state of the Ukrainian web at a specific point in 2026.
   externally observable properties of public endpoints; no natural person is
   identifiable from it (see Preprocessing).
 - **Sample vs. full.** This repository ships a 1,000-row random sample
-  (`sample/ua_sample_1k.parquet`, seed 42). The full file is on Zenodo / HF.
+  (`sample/ua_sample_1k.parquet`, seed 42). The full file is on Zenodo.
 
 ## Collection process
 
@@ -93,15 +93,17 @@ particular it:
 
 ## Distribution
 
-- **Zenodo** (canonical, versioned, DOI) — link pending release.
-- **Hugging Face Datasets** (`ARogovsky/uanet-dataset`) — mirror with
-  in-browser viewer and `load_dataset()` access.
+- **Zenodo** (canonical, versioned, DOI):
+  [10.5281/zenodo.20623589](https://doi.org/10.5281/zenodo.20623589).
+- **Hugging Face Datasets** — mirror at
+  <https://huggingface.co/datasets/ARogovsky/uanet-dataset>
+  (`load_dataset("ARogovsky/uanet-dataset")`).
 - This **GitHub repo** carries methodology, schema, sanitization code and the
   1k sample only — not the bulk data.
 
 ## Maintenance
 
-Maintained by Andrii Rogovsky ([@ARogovsky](https://github.com/ARogovsky)).
+Maintained by Andrii Rogovskyi ([@ARogovsky](https://github.com/ARogovsky)).
 Corrections and questions via repository Issues. Versioning follows Zenodo
 records; any future snapshot will be published as a new version with its own
 observation window.

@@ -2,7 +2,7 @@
 
 An enrichment snapshot of the Ukrainian `.ua` (ccTLD) web.
 
-[![DOI](https://img.shields.io/badge/DOI-pending-blue.svg)](https://zenodo.org/) <!-- replace with Zenodo DOI after release -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20623589.svg)](https://doi.org/10.5281/zenodo.20623589)
 [![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-green.svg)](LICENSE)
 
@@ -43,8 +43,8 @@ zone-level summary.
 ## Contents
 
 > **Note:** This repository holds the **methodology, schema, sanitization
-> scripts and a small sample**. The full dataset is hosted on Zenodo / Hugging
-> Face (links below). The repo does **not** carry the bulk data.
+> scripts and a small sample**. The full dataset is hosted on Zenodo and
+> Hugging Face (links below). The repo does **not** carry the bulk data.
 
 ```
 .
@@ -65,15 +65,15 @@ zone-level summary.
 
 ## Data access
 
-- **Zenodo (canonical, DOI):** _link pending release_
-- **Hugging Face Datasets:** _link pending release_
+- **Zenodo (canonical, DOI):** <https://doi.org/10.5281/zenodo.20623589>
+- **Hugging Face Datasets:** <https://huggingface.co/datasets/ARogovsky/uanet-dataset>
 
 ```python
-# Hugging Face
+# Full dataset via Hugging Face:
 from datasets import load_dataset
 ds = load_dataset("ARogovsky/uanet-dataset", split="train")
 
-# Or the bundled sample, locally:
+# Or the bundled 1k sample locally (no download):
 import pyarrow.parquet as pq
 tbl = pq.read_table("sample/ua_sample_1k.parquet")
 ```
@@ -107,8 +107,10 @@ This release is deliberately reduced from the raw scan output:
   is identifiable from this dataset.
 - **No operational metadata.** Internal pipeline state, run and worker
   identifiers, and database bookkeeping timestamps are stripped.
-- **Coarsened time.** The millisecond observation timestamp is reduced to a
-  UTC day (`observed_day`).
+- **Coarsened time.** The millisecond *observation* timestamp is reduced to a
+  UTC day (`observed_day`). Certificate validity timestamps
+  (`ssl_cert_valid_from_ms` / `ssl_cert_valid_to_ms`) are properties of the
+  certificate, not collection bookkeeping, and are kept as-is.
 
 SPF and DMARC records **are** included per-domain: they are public DNS records
 any party can query, and certificate-anomaly flags (self-signed: 1,
@@ -120,6 +122,13 @@ does not function as an attack-target list.
 - Single point-in-time snapshot; configurations change.
 - Only the responding ~49.4% carries enrichment; non-responding hosts are
   present but sparse.
+- **Interpreting null SPF/DMARC.** Enrichment (including SPF/DMARC DNS
+  lookups) was recorded only for responding domains. Among those, a `null`
+  in `spf_record` / `dmarc_record` is a **real negative** — no such record is
+  published by the domain — which is what the "~84.6% without DMARC" figure
+  measures. For non-responding domains every enrichment column (SPF/DMARC
+  included) is null because it was *not determined*, not because the record is
+  absent.
 - Scanner-derived heuristics (mobile-friendliness, content extraction) carry
   the usual false-positive/negative characteristics of automated probing.
 - `.ua` second-level registration requires a matching trademark, so the zone
@@ -145,17 +154,17 @@ operator.
 ## Citation
 
 ```bibtex
-@dataset{rogovsky_ua_web_census_2026,
-  author    = {Rogovsky, Andrii},
+@dataset{rogovskyi_ua_web_census_2026,
+  author    = {Rogovskyi, Andrii},
   title     = {UA Web Census 2026: An Enrichment Snapshot of the .ua Web},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {[DOI pending]},
-  url        = {[URL pending]}
+  doi       = {10.5281/zenodo.20623589},
+  url       = {https://doi.org/10.5281/zenodo.20623589}
 }
 ```
 
 ## Acknowledgements
 
-Built and maintained by Andrii Rogovsky ([@ARogovsky](https://github.com/ARogovsky)).
+Built and maintained by Andrii Rogovskyi ([@ARogovsky](https://github.com/ARogovsky)).
 Feedback and corrections welcome via Issues.
