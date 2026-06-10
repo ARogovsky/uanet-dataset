@@ -2,7 +2,7 @@
 
 An enrichment snapshot of the Ukrainian `.ua` (ccTLD) web.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20623589.svg)](https://doi.org/10.5281/zenodo.20623589)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20623589-blue.svg)](https://doi.org/10.5281/zenodo.20623589)
 [![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-green.svg)](LICENSE)
 
