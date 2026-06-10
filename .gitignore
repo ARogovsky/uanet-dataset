@@ -1,0 +1,25 @@
+# ---------------------------------------------------------------------------
+# SECURITY: never commit the raw dump. It contains harvested emails (PII) and
+# operational submission data. Only the sanitized release artifacts are public.
+# ---------------------------------------------------------------------------
+domains_backup_*.sql
+domains_backup_*.sql.gz
+*.dump
+*.sql
+*.sql.gz
+
+# Build artifacts: the full sanitized dataset is uploaded to Zenodo / HF,
+# not stored in git (only the small sample under sample/ is committed).
+build/
+*.parquet
+!sample/*.parquet
+*.csv
+!sample/*.csv
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
