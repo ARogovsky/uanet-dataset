@@ -3,8 +3,8 @@
 An enrichment snapshot of the Ukrainian `.ua` (ccTLD) web.
 
 [![DOI](https://img.shields.io/badge/DOI-pending-blue.svg)](https://zenodo.org/) <!-- replace with Zenodo DOI after release -->
-[![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Code: MIT](https://img.shields.io/badge/Code-MIT-green.svg)](LICENSE-CODE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
+[![Code: MIT](https://img.shields.io/badge/Code-MIT-green.svg)](LICENSE)
 
 ---
 
@@ -50,8 +50,8 @@ zone-level summary.
 .
 ├── README.md
 ├── DATASET.md                 # data statement: composition, collection, sanitization
-├── LICENSE                    # CC BY 4.0 (data)
-├── LICENSE-CODE               # MIT (code)
+├── LICENSE                    # MIT (code)
+├── LICENSE-DATA               # CC BY 4.0 (data)
 ├── schema/
 │   └── columns.md             # per-column type and description (34 columns)
 ├── scripts/
@@ -135,8 +135,12 @@ operator.
 
 ## License
 
-- **Data:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — see [`LICENSE`](LICENSE).
-- **Code:** MIT — see [`LICENSE-CODE`](LICENSE-CODE).
+- **Data:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — see [`LICENSE-DATA`](LICENSE-DATA).
+- **Code:** MIT — see [`LICENSE`](LICENSE).
+
+> GitHub reports this repository's license as **MIT** (it classifies the
+> standard `LICENSE` file, which covers the code). The dataset itself is
+> **CC BY 4.0** per `LICENSE-DATA`.
 
 ## Citation
 
